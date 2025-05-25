@@ -16,7 +16,6 @@ Este é um pequeno catálogo online desenvolvido para listar produtos, aplicar f
 - Filtrar por categoria
 - Mostrar somente disponíveis
 - Agrupamento por categoria (bônus)
-- Ordenação por preço (bônus)
 
 ### Como rodar
 
