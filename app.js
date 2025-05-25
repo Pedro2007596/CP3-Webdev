@@ -1,4 +1,8 @@
-
+const categoria = document.getElementById("categoria");
+const disponiveis = document.getElementById("disponiveis");
+const naodisponiveis = document.getElementById("naodisponiveis");
+const btnfiltrar = document.getElementById("filtrar");
+const showprodutos = document.getElementById("produtos");
 
 const produtos =[
     {
@@ -71,3 +75,4 @@ const produtos =[
     disponibilidade: true
 },
 ]
+
