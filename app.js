@@ -1,7 +1,7 @@
-const categoria = document.getElementById("categoria");
+const categoria = document.getElementById("categorias");
 const disponiveis = document.getElementById("disponiveis");
 const naodisponiveis = document.getElementById("naodisponiveis");
-const btnfiltrar = document.getElementById("filtrar");
+const btnfiltrar = document.getElementById("btnfiltrar");
 const showprodutos = document.getElementById("produtos");
 
 const produtos =[
@@ -76,3 +76,41 @@ const produtos =[
 },
 ]
 
+btnfiltrar.addEventListener("click", function() {
+    let categoriaSelecionada = categoria.value;
+    let disponiveisSelecionados = disponiveis.checked;
+    let naodisponiveisSelecionados = naodisponiveis.checked;
+
+    showprodutos.innerHTML = "";
+
+    if (categoriaSelecionada === "" && !disponiveisSelecionados) {
+        alert("Selecione uma categoria ou marque a opção de produtos disponíveis.");
+        return;
+    }
+    produtos.forEach(function(produto) {
+        let exibirProduto = true;
+
+        if (categoriaSelecionada !== "" && produto.categoria !== categoriaSelecionada) {
+            exibirProduto = false;
+        }
+
+        if (disponiveisSelecionados && !produto.disponibilidade) {
+            exibirProduto = false;
+        }
+
+        if (naodisponiveisSelecionados && produto.disponibilidade) {
+            exibirProduto = false;
+        }
+
+        if (exibirProduto) {
+            let card = document.createElement("div");
+            card.innerHTML += `<div class="produto">
+                <h3>${produto.nome}</h3>
+                <p>Preço: R$ ${produto.preco.toFixed(2)}</p>
+                <p>Categoria: ${produto.categoria}</p>
+                <p>Disponibilidade: ${produto.disponibilidade}</p>
+            </div>`;
+            showprodutos.appendChild(card);
+        }
+    })
+})
