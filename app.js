@@ -108,8 +108,9 @@ btnfiltrar.addEventListener("click", function() {
                 <h3>${produto.nome}</h3>
                 <p>Preço: R$ ${produto.preco.toFixed(2)}</p>
                 <p>Categoria: ${produto.categoria}</p>
-                <p>Disponibilidade: ${produto.disponibilidade}</p>
-            </div>`;
+                <p>Disponibilidade: ${produto.disponibilidade ? "Disponivel" : "Indisponivel"}</p>
+            </div>`;//? "Disponivel" : "Indisponivel" aprendi a usar isso no trabalho
+            card.classList.add("card");
             showprodutos.appendChild(card);
         }
     })
